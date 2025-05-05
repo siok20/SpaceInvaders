@@ -1,6 +1,10 @@
 
 package player;
 
+import java.io.IOException;
+import model.AvatarLoader;
+import model.Starship;
+
 /**
  *
  * @author siok
@@ -8,21 +12,11 @@ package player;
 public class Player {
 
     public static void main(String[] args) {
-        char[][] invader1 = {
-    {'\u253C', '\u2565', '\u2565', '\u253C'},  // ┼╥╥┼
-    {'\u2554', '\u256C', '\u256C', '\u2557'},  // ╔╬╬╗
-    {'\u255A', '\u2569', '\u2569', '\u255D'}   // ╚╩╩╝
-};
+        Starship sp = new Starship(3);
+        
+        sp.bala.printavatar();
 
-        printInvader(invader1);
-    }
-    
-    public static void printInvader(char[][] invader) {
-        for (char[] row : invader) {
-            for (char c : row) {
-                System.out.print(c);
-            }
-            System.out.println();
-        }
+        sp.printavatar();
+        
     }
 }
