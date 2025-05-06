@@ -3,9 +3,10 @@ package server;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import spaceinvaders.Table;
 
 public class Servidor50 {
-
+    public Table tb = new Table();
     TCPServer50 mTcpServer;
     Scanner sc;
     int mipuerto;
@@ -49,13 +50,11 @@ public class Servidor50 {
         //-----------------
         String salir = "n";
         sc = new Scanner(System.in);
-        System.out.println("Servidor bandera 01");
+        System.out.println("Servidor SpaceInvader inciado... Esperando jugadores");
         while (!salir.equals("s")) {
             salir = sc.nextLine();
             ServidorEnvia(salir);
         }
-        System.out.println("Servidor bandera 02");
-
     }
 
     void ServidorRecibe(String llego) {
@@ -66,37 +65,10 @@ public class Servidor50 {
 
         miForm.PrintTextJTextArea1("<-" + llego + "\n" + mitexto);
 
-
-        /* String arrayString[] = llego.split("\\s+");
-        int x = Integer.parseInt(arrayString[0]);
-        int y = Integer.parseInt(arrayString[1]);
-
-        if (contador == 1) {
-            tablero[x][y] = "a";
-        } else if (contador == 2) {
-            tablero[x][y] = "b";
-        } else if (contador == 3) {
-            tablero[x][y] = "c";
-        } else if (contador == 4) {
-            tablero[x][y] = "d";
-        } else if (contador == 5) {
-            tablero[x][y] = "e";
-        }
-         */
-        String rpta = "";
-        rpta = rpta + "\r\n";
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(tablero[i][j]);
-                //out.print(mitabla[i][j]);
-                rpta = rpta + tablero[i][j];
-
-            }
-            rpta = rpta + "\r\n";
-            System.out.println("");
-        }
-        miForm.PrintTextJTextArea2(rpta);
-        ServidorEnvia(rpta);
+        
+        
+        miForm.PrintTextJTextArea2(mTcpServer.tb.toString());
+        ServidorEnvia(mTcpServer.tb.toString());
         //JTextArea ;
         //miForm.jTextArea();
         //String = miForm.

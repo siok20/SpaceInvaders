@@ -18,7 +18,7 @@ public class FinalBoss extends Avatar {
         
         try {
             super.setIcon(AvatarLoader.loadIcon("src/main/java/finalboss.txt"));
-            misil = new Misil(4,"rpg");
+            misil = new Misil(4,"rpg", false);
         } catch (IOException e) {
             System.out.println("Error al cargar el avatar: " + e.getMessage());
         }

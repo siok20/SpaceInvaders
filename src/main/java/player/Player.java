@@ -4,6 +4,7 @@ package player;
 import java.io.IOException;
 import model.AvatarLoader;
 import model.Starship;
+import model.Wall;
 
 /**
  *
@@ -14,9 +15,12 @@ public class Player {
     public static void main(String[] args) {
         Starship sp = new Starship(3);
         
-        sp.bala.printavatar();
+        sp.misil.printAvatar();
 
-        sp.printavatar();
+        sp.printAvatar();
+        
+        Wall wall = new Wall();
+        wall.printAvatar();
         
     }
 }

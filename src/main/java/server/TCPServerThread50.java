@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import spaceinvaders.Table;
 
 public class TCPServerThread50 extends Thread {
-
+    
     private Socket client;
     private TCPServer50 tcpserver;
     private int clientID;
@@ -47,27 +48,24 @@ public class TCPServerThread50 extends Thread {
                     message = in.readLine();
 
                     if (message != null && messageListener != null) {
-                        
+                        tcpserver.tb.updateFrame();
                         //////////////////////
-                        if (message.contains("t")) {
-                            String arrayString[] = message.split("\\s+");
-                            int x = Integer.parseInt(arrayString[1]);
-                            int y = Integer.parseInt(arrayString[2]);
-
-                            if (clientID == 1) {
-                                mitabla[x][y] = "a";
-                            } else if (clientID == 2) {
-                                mitabla[x][y] = "b";
-                            } else if (clientID == 3) {
-                                mitabla[x][y] = "c";
-                            } else if (clientID == 4) {
-                                mitabla[x][y] = "d";
-                            } else if (clientID == 5) {
-                                mitabla[x][y] = "e";
-                            }
+                        if (message.contains("LEFT")) {
+                            tcpserver.tb.moveStarship(clientID, "LEFT");
+                        }
+                        else if (message.contains("UP")) {
+                            tcpserver.tb.moveStarship(clientID, "UP");
+                        }
+                        else if (message.contains("DOWN")) {
+                            tcpserver.tb.moveStarship(clientID, "DOWN");
+                        }
+                        else if (message.contains("RIGHT")) {
+                            tcpserver.tb.moveStarship(clientID, "RIGHT");
                         }
                         //////////////////////    
                         messageListener.messageReceived(message);
+                        
+                        tcpserver.sendMessageTCPServer(tcpserver.tb.toString());
                         
                     }
 

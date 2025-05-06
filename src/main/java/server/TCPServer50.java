@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import spaceinvaders.Table;
 
 public class TCPServer50 {
-
+    public Table tb = new Table();
     private String message;
     int nrcli = 0;
     public static final int SERVERPORT = 5123;//4444
@@ -54,6 +55,7 @@ public class TCPServer50 {
                 System.out.println("Engendrado " + nrcli);
                 //sendclis[nrcli] = new TCPServerThread50(client, this, nrcli, sendclis, mitabla);
                 sendclis[nrcli] = new TCPServerThread50(client, this, nrcli, sendclis, mitabla, miForm);
+                tb.addStarship(19, nrcli + 2);
                 Thread t = new Thread(sendclis[nrcli]);
                 t.start();
                 System.out.println("Nuevo conectado:" + nrcli + " jugadores conectados");

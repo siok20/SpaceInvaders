@@ -5,10 +5,7 @@ import java.util.Scanner;
 class Cliente50{
     TCPClient50 mTcpClient;
     Scanner sc;
-//    public static void main(String[] args)  {
-//        Cliente50 objcli = new Cliente50();
-//        objcli.iniciar();    
-//    }
+
     int mipuerto;
     String miip;
     ClientePlay miForm;
@@ -51,13 +48,13 @@ class Cliente50{
     }
     String tmp;
     void ClienteRecibe(String llego){
-        System.out.println("CLINTE50 El mensaje::" + llego);
+        System.out.println(llego);
+
         //String mitexto = miForm.getTextjTextArea1();
        
         //miForm.PrintTextJTextArea2(llego);
-        tmp = miForm.getTextjTextArea2();
-        tmp =  tmp + "\n" + llego;
-        miForm.PrintTextJTextArea2(tmp);
+        
+        miForm.PrintTextJTextArea2(llego);
         //miForm.PrintTextJTextArea2("aquiii 1546746");
         
 

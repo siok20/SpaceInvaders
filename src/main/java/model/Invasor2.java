@@ -18,7 +18,7 @@ public class Invasor2 extends Avatar {
         
         try {
             super.setIcon(AvatarLoader.loadIcon("src/main/java/invasor2.txt"));
-            misil = new Misil(2, "bomb2");
+            misil = new Misil(2, "bomb2", false);
         } catch (IOException e) {
             System.out.println("Error al cargar el avatar: " + e.getMessage());
         }
